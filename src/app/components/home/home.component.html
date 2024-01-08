@@ -1,0 +1,30 @@
+<section class="galeria">
+
+    <div class="buscador">
+        <div class="wave-group">
+            <input required="" type="text" class="input" [(ngModel)]="query" name="query">
+            <span class="bar"></span>
+            <label class="label">
+                <span class="label-char" style="--index: 0">N</span>
+                <span class="label-char" style="--index: 1">a</span>
+                <span class="label-char" style="--index: 2">m</span>
+                <span class="label-char" style="--index: 3">e</span>
+            </label>
+        </div>
+        <button type="button" (click)="searchImages()"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+            
+    @if (fotos.length > 0) {
+        <div class="cards">
+            @for (item of fotos; track $index) {
+                <div class="card" gallerize>
+                    <img [ngSrc]="item.urls['regular']" alt="" width="100" height="100" priority>
+                </div>
+            }
+        </div>
+    }@else {
+        <div class="error">
+            <img src="./../../../assets/images/404.png" alt="Error" title="error 404">
+        </div>
+    }
+</section>
